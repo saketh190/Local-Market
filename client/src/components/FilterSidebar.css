@@ -1,0 +1,134 @@
+/* ═══════════════════════════════════
+   Filter Sidebar Styles
+   ═══════════════════════════════════ */
+
+.filter-sidebar {
+    width: 280px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    height: fit-content;
+    position: sticky;
+    top: calc(var(--navbar-height) + 24px);
+    flex-shrink: 0;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.filter-close {
+    display: none;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section>label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.category-chips,
+.condition-toggles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    padding: 6px 14px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.chip:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.chip.active {
+    background: rgba(108, 92, 231, 0.15);
+    border-color: var(--primary);
+    color: var(--primary-light);
+}
+
+.price-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-range .input-field {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.range-sep {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.clear-btn {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+    .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        z-index: 1001;
+        border-radius: 0;
+        transform: translateX(-100%);
+        transition: transform var(--transition);
+        overflow-y: auto;
+        padding-top: 24px;
+    }
+
+    .filter-sidebar.open {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .filter-close {
+        display: flex;
+    }
+}
